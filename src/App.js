@@ -1,40 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import HeroSlider from './components/HeroSlider';
 import SocialMediaLinks from './components/SocialMediaLinks';
-import StatisticsSection from './components/StatisticsSection';
 import logo from './assets/logo.png';
+import Navbar from './components/Navbar';
 
 const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  // Navbar mengelola state-nya sendiri
 
   return (
     <div className="app">
-      <header>
-        <nav className="navbar">
-          <div className="navbar-wrapper">
-            <div className="logo-container">
-              <a href="#home" className="logo">
-                <img src={logo} alt="INSAN KONSTRUKSI NUSANTARA" className="logo-image" />
-              </a>
-            </div>
-            <button className="menu-toggle" onClick={toggleMenu}>☰</button>
-            <div className={`nav-container ${isMenuOpen ? 'active' : ''}`}>
-              <div className="nav-links">
-                <a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a>
-                <a href="#about" onClick={() => setIsMenuOpen(false)}>About Us</a>
-                <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
-                <a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
-                <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </header>
+      <Navbar />
 
       <section id="home">
         <HeroSlider />
@@ -56,8 +32,6 @@ const App = () => {
           </div>
         </div>
       </section>
-
-      <StatisticsSection />
 
       <section id="services" className="services-section">
         <div className="container">
